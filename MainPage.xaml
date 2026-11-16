@@ -1,0 +1,192 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    x:Class="MauiApp1_APPHOTEL.MainPage"
+    Title="Raiza Hotel"
+    BackgroundColor="#F5F2FA">
+
+    <ScrollView>
+        <VerticalStackLayout Padding="24" Spacing="18">
+
+            <!-- CABEÇALHO -->
+            <VerticalStackLayout Spacing="5">
+                <Label
+                    Text="RAIZA HOTEL"
+                    FontSize="32"
+                    FontAttributes="Bold"
+                    TextColor="#5426A8"
+                    HorizontalOptions="Center"/>
+
+                <Label
+                    Text="Sua experiência merece ser especial."
+                    FontSize="14"
+                    TextColor="#777777"
+                    HorizontalOptions="Center"/>
+            </VerticalStackLayout>
+
+            <!-- BANNER -->
+            <Border
+                BackgroundColor="#5426A8"
+                StrokeThickness="0"
+                Padding="22"
+                StrokeShape="RoundRectangle 18">
+
+                <VerticalStackLayout Spacing="9">
+                    <Label
+                        Text="BEM-VINDO!"
+                        FontSize="13"
+                        FontAttributes="Bold"
+                        TextColor="#DCCBFF"/>
+
+                    <Label
+                        Text="Reserve sua estadia"
+                        FontSize="25"
+                        FontAttributes="Bold"
+                        TextColor="White"/>
+
+                    <Label
+                        Text="Conforto, praticidade e momentos inesquecíveis."
+                        FontSize="14"
+                        TextColor="White"/>
+                </VerticalStackLayout>
+            </Border>
+
+            <!-- DADOS DO HÓSPEDE -->
+            <Label
+                Text="DADOS DO HÓSPEDE"
+                FontSize="17"
+                FontAttributes="Bold"
+                TextColor="#5426A8"/>
+
+            <Label
+                Text="Nome completo"
+                FontAttributes="Bold"
+                TextColor="#333333"/>
+
+            <Entry
+                Placeholder="Digite seu nome"
+                Text="{Binding NomeHospede}"
+                BackgroundColor="White"
+                TextColor="#333333"/>
+
+            <!-- STEPPER -->
+            <Label
+                Text="Quantidade de hóspedes"
+                FontAttributes="Bold"
+                TextColor="#333333"/>
+
+            <Border
+                BackgroundColor="White"
+                Stroke="#E3D9F2"
+                Padding="12"
+                StrokeShape="RoundRectangle 12">
+
+                <HorizontalStackLayout
+                    Spacing="20"
+                    VerticalOptions="Center">
+
+                    <Stepper
+                        Minimum="1"
+                        Maximum="10"
+                        Increment="1"
+                        Value="{Binding QuantidadeHospedes}"/>
+
+                    <Label
+                        Text="{Binding QuantidadeHospedes, StringFormat='{0:0} hóspedes'}"
+                        FontSize="17"
+                        FontAttributes="Bold"
+                        TextColor="#5426A8"
+                        VerticalOptions="Center"/>
+                </HorizontalStackLayout>
+            </Border>
+
+            <!-- DATAS -->
+            <Label
+                Text="PERÍODO DA HOSPEDAGEM"
+                FontSize="17"
+                FontAttributes="Bold"
+                TextColor="#5426A8"/>
+
+            <Label
+                Text="Data de entrada"
+                FontAttributes="Bold"
+                TextColor="#333333"/>
+
+            <DatePicker
+                Date="{Binding DataEntrada}"
+                Format="dd/MM/yyyy"
+                BackgroundColor="White"
+                TextColor="#333333"/>
+
+            <Label
+                Text="Data de saída"
+                FontAttributes="Bold"
+                TextColor="#333333"/>
+
+            <DatePicker
+                Date="{Binding DataSaida}"
+                Format="dd/MM/yyyy"
+                BackgroundColor="White"
+                TextColor="#333333"/>
+
+            <!-- ACOMODAÇÃO -->
+            <Label
+                Text="TIPO DE ACOMODAÇÃO"
+                FontSize="17"
+                FontAttributes="Bold"
+                TextColor="#5426A8"/>
+
+            <Picker
+                Title="Selecione sua acomodação"
+                ItemsSource="{Binding TiposAcomodacao}"
+                SelectedItem="{Binding AcomodacaoSelecionada}"
+                BackgroundColor="White"
+                TextColor="#333333"/>
+
+            <!-- RESUMO -->
+            <Border
+                BackgroundColor="White"
+                Stroke="#DDD3EF"
+                StrokeThickness="1"
+                Padding="18"
+                StrokeShape="RoundRectangle 15">
+
+                <VerticalStackLayout Spacing="10">
+
+                    <Label
+                        Text="RESUMO DA RESERVA"
+                        FontSize="17"
+                        FontAttributes="Bold"
+                        TextColor="#5426A8"/>
+
+                    <Label
+                        Text="{Binding ResumoReserva}"
+                        TextColor="#444444"
+                        FontSize="14"
+                        LineBreakMode="WordWrap"/>
+
+                </VerticalStackLayout>
+            </Border>
+
+            <!-- BOTÃO -->
+            <Button
+                Text="CONFIRMAR RESERVA"
+                BackgroundColor="#5426A8"
+                TextColor="White"
+                FontAttributes="Bold"
+                FontSize="15"
+                CornerRadius="12"
+                HeightRequest="55"
+                Clicked="OnConfirmarReservaClicked"/>
+
+            <Label
+                Text="RAIZA HOTEL • SUA ESTADIA, NOSSA PRIORIDADE"
+                FontSize="10"
+                TextColor="#888888"
+                HorizontalOptions="Center"
+                HorizontalTextAlignment="Center"/>
+
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>
